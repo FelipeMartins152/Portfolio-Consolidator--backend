@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class SignUpUserRequest {
 
     @NotBlank(message = "Campo Obrigatório")
-    private String full_name;
+    private String fullName;
 
     @NotBlank(message = "Campo Obrigatório")
     private String email;
