@@ -11,7 +11,7 @@ public class UserMapper {
     public static User toEntity(SignUpUserRequest signUpUserRequest){
         return User
                 .builder()
-                .fullName(signUpUserRequest.getFull_name())
+                .fullName(signUpUserRequest.getFullName())
                 .email(signUpUserRequest.getEmail())
                 .password(signUpUserRequest.getPassword())
                 .phone(signUpUserRequest.getPhone())

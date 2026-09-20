@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
-@Entity
+@Entity(name = "price_histories")
 @Getter @Setter
 @Builder
 @AllArgsConstructor @NoArgsConstructor

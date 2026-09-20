@@ -16,7 +16,6 @@ public class UserController {
 
     private final SignUpUserService signUpUserService;
 
-
     @PostMapping
     @ResponseStatus(CREATED)
     public SignUpUserResponse signUpUser (@Valid @RequestBody SignUpUserRequest signUpUserRequest){

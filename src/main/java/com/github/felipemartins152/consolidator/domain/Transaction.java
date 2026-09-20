@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import static jakarta.persistence.EnumType.STRING;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
-@Entity
+@Entity(name = "transactions")
 @Getter @Setter
 @Builder
 @AllArgsConstructor @NoArgsConstructor

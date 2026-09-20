@@ -8,13 +8,13 @@
   },
   "item": [
     {
-      "name": "New Request",
+      "name": "Sign Up User",
       "request": {
         "method": "POST",
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"full_name\": \"Primeiro Usuário\",\r\n    \"email\": \"testando03@gmail.com\",\r\n    \"phone\": \"51999999999\",\r\n    \"password\": \"testando123\",\r\n    \"birth_date\": \"2004-10-20\"\r\n}",
+          "raw": "{\r\n    \"fullName\": \"Primeiro Usuário\",\r\n    \"email\": \"testando01@gmail.com\",\r\n    \"phone\": \"51999999999\",\r\n    \"password\": \"testando123\",\r\n    \"birthDate\": \"2004-10-20\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -29,6 +29,37 @@
           "port": "8080",
           "path": [
             "user"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"testando01@gmail.com\",\r\n    \"password\": \"testando123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/auth/login",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "auth",
+            "login"
           ]
         }
       },

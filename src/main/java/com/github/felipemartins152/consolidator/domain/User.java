@@ -1,5 +1,6 @@
 package com.github.felipemartins152.consolidator.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,7 +9,7 @@ import java.util.List;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
-@Entity
+@Entity(name = "users")
 @Getter @Setter
 @Builder
 @AllArgsConstructor @NoArgsConstructor

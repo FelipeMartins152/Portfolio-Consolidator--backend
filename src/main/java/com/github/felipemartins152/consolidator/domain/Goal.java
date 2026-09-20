@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
-@Entity
+@Entity(name = "goals")
 @Getter @Setter
 @Builder
 @AllArgsConstructor @NoArgsConstructor

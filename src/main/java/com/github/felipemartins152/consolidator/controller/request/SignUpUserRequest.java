@@ -1,6 +1,7 @@
 package com.github.felipemartins152.consolidator.controller.request;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -22,7 +23,7 @@ public class SignUpUserRequest {
     @NotBlank(message = "Campo Obrigatório")
     private String password;
 
-    @NotBlank(message = "Campo Obrigatório")
+    @NotNull(message = "Campo Obrigatório")
     private LocalDate birthDate;
 
 }

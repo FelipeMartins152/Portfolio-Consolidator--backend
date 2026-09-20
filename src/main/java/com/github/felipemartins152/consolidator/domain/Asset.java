@@ -10,7 +10,7 @@ import java.util.List;
 import static jakarta.persistence.EnumType.STRING;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
-@Entity
+@Entity(name = "assets")
 @Getter @Setter
 @Builder
 @AllArgsConstructor @NoArgsConstructor

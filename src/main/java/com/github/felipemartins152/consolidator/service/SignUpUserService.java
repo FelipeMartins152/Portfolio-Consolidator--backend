@@ -6,6 +6,7 @@ import com.github.felipemartins152.consolidator.domain.User;
 import com.github.felipemartins152.consolidator.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import static com.github.felipemartins152.consolidator.mapper.UserMapper.toEntity;
@@ -22,7 +23,7 @@ public class SignUpUserService {
         User user = toEntity(signUpUserRequest);
 
         user.setActive(true);
-        user.setPassword(signUpUserRequest.getPassword());
+        user.setPassword(new BCryptPasswordEncoder().encode(signUpUserRequest.getPassword()));
 
         userRepository.save(user);
 
