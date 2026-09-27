@@ -1,6 +1,5 @@
 package com.github.felipemartins152.consolidator.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package com.github.felipemartins152.consolidator.controller.request;
+package com.github.felipemartins152.consolidator.controller.request.user;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

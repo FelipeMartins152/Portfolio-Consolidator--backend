@@ -1,6 +1,6 @@
 package com.github.felipemartins152.consolidator.service;
 
-import com.github.felipemartins152.consolidator.controller.request.SignUpUserRequest;
+import com.github.felipemartins152.consolidator.controller.request.user.SignUpUserRequest;
 import com.github.felipemartins152.consolidator.controller.response.user.SignUpUserResponse;
 import com.github.felipemartins152.consolidator.domain.User;
 import com.github.felipemartins152.consolidator.repository.UserRepository;
