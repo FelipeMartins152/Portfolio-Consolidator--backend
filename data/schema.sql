@@ -53,3 +53,8 @@ CREATE TABLE price_histories(
     asset_id BIGINT NOT NULL,
     PRIMARY KEY (history_id),
     FOREIGN KEY (asset_id) REFERENCES assets(asset_id));
+
+CREATE TABLE blacklisted_tokens(
+    jti VARCHAR(36) NOT NULL,
+    expires_at DATETIME(6) NOT NULL,
+    PRIMARY KEY (jti));

@@ -12,6 +12,9 @@
 - **| Tecnologia | Finalidade |**
   - | Java 17 | Linguagem de programação |
   - | Spring Boot 4 | Desenvolvimento da API |
+  - | Spring Data JPA | Persistência de dados |
+  - | Spring Security | Controle de acesso |
+  - | Token JWT | Autenticação e autorização |
   - | MySQL | Banco de dados |
   - | Git e GitHub | Controle de versão |
   - | Intellij IDE | Ambiente de Desenvolvimento |

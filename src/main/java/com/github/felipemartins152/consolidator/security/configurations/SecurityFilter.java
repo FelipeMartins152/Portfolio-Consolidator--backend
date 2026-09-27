@@ -1,6 +1,8 @@
 package com.github.felipemartins152.consolidator.security.configurations;
 
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.github.felipemartins152.consolidator.domain.User;
+import com.github.felipemartins152.consolidator.repository.BlacklistedTokenRepository;
 import com.github.felipemartins152.consolidator.repository.UserRepository;
 import com.github.felipemartins152.consolidator.security.domain.UserSecurity;
 import com.github.felipemartins152.consolidator.security.service.TokenService;
@@ -25,6 +27,8 @@ public class SecurityFilter extends OncePerRequestFilter {
 
     private final UserRepository userRepository;
 
+    private final BlacklistedTokenRepository blacklistedTokenRepository;
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         var token = this.recoverToken(request);
@@ -36,6 +40,14 @@ public class SecurityFilter extends OncePerRequestFilter {
                     .orElseThrow(() -> new RuntimeException("Usuário não encontrado para o token enviado"));
 
             UserDetails userDetails = new UserSecurity(user);
+
+            DecodedJWT decodedJWT = tokenService.decode(token);
+            String jti = decodedJWT.getId();
+
+            if(blacklistedTokenRepository.existsByJti(jti)){
+                filterChain.doFilter(request, response);
+                return;
+            }
 
             var authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication);
