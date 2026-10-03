@@ -8,7 +8,7 @@ CREATE TABLE users(
 	user_id BIGINT AUTO_INCREMENT NOT NULL,
     full_name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
-    phone VARCHAR(30) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
     password VARCHAR(255) NOT NULL,
     birth_date DATE NOT NULL,
     is_active BOOLEAN NOT NULL,
