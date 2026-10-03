@@ -1,9 +1,11 @@
-package com.github.felipemartins152.consolidator.service;
+package com.github.felipemartins152.consolidator.service.user;
 
 import com.github.felipemartins152.consolidator.controller.request.user.SignUpUserRequest;
 import com.github.felipemartins152.consolidator.controller.response.user.SignUpUserResponse;
 import com.github.felipemartins152.consolidator.domain.User;
 import com.github.felipemartins152.consolidator.repository.UserRepository;
+import com.github.felipemartins152.consolidator.service.validator.ValidateUserEmailService;
+import com.github.felipemartins152.consolidator.service.validator.ValidateUserPhoneService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,8 +20,16 @@ public class SignUpUserService {
 
     private final UserRepository userRepository;
 
+    private final ValidateUserEmailService validateUserEmailService;
+
+    private final ValidateUserPhoneService validateUserPhoneService;
+
     @Transactional
     public SignUpUserResponse signUpUser (SignUpUserRequest signUpUserRequest){
+
+        validateUserEmailService.validateEmailUnique(signUpUserRequest.getEmail());
+        validateUserPhoneService.validatePhoneUnique(signUpUserRequest.getPhone());
+
         User user = toEntity(signUpUserRequest);
 
         user.setActive(true);

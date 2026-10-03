@@ -1,4 +1,4 @@
-package com.github.felipemartins152.consolidator.service;
+package com.github.felipemartins152.consolidator.service.user;
 
 import com.github.felipemartins152.consolidator.domain.User;
 import com.github.felipemartins152.consolidator.repository.UserRepository;
