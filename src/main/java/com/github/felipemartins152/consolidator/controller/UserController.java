@@ -1,9 +1,11 @@
 package com.github.felipemartins152.consolidator.controller;
 
+import com.github.felipemartins152.consolidator.controller.request.user.ChangePasswordRequest;
 import com.github.felipemartins152.consolidator.controller.request.user.EditProfileUserRequest;
 import com.github.felipemartins152.consolidator.controller.request.user.SignUpUserRequest;
 import com.github.felipemartins152.consolidator.controller.response.user.SignUpUserResponse;
 import com.github.felipemartins152.consolidator.security.domain.UserSecurity;
+import com.github.felipemartins152.consolidator.service.user.ChangePasswordUserService;
 import com.github.felipemartins152.consolidator.service.user.DeleteUserService;
 import com.github.felipemartins152.consolidator.service.user.EditProfileUserService;
 import com.github.felipemartins152.consolidator.service.user.SignUpUserService;
@@ -22,9 +24,11 @@ public class UserController {
 
     private final SignUpUserService signUpUserService;
 
-    private final DeleteUserService deleteUserService;
-
     private final EditProfileUserService editProfileUserService;
+
+    private final ChangePasswordUserService changePasswordUserService;
+
+    private final DeleteUserService deleteUserService;
 
     @PostMapping
     @ResponseStatus(CREATED)
@@ -37,6 +41,13 @@ public class UserController {
     public void editProfileUser(@AuthenticationPrincipal UserSecurity user,
                                 @Valid @RequestBody EditProfileUserRequest request){
         editProfileUserService.editProfileUser(user.getId(), request);
+    }
+
+    @PutMapping("/change-password")
+    @ResponseStatus(OK)
+    public void chandePassword(@AuthenticationPrincipal UserSecurity user,
+                               @Valid @RequestBody ChangePasswordRequest request){
+        changePasswordUserService.changePasswordUser(user.getId(), request);
     }
 
     @DeleteMapping

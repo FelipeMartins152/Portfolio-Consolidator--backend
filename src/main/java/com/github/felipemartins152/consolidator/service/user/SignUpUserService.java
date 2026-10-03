@@ -8,7 +8,7 @@ import com.github.felipemartins152.consolidator.service.validator.ValidateUserEm
 import com.github.felipemartins152.consolidator.service.validator.ValidateUserPhoneService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import static com.github.felipemartins152.consolidator.mapper.UserMapper.toEntity;
@@ -24,6 +24,8 @@ public class SignUpUserService {
 
     private final ValidateUserPhoneService validateUserPhoneService;
 
+    private final PasswordEncoder passwordEncoder;
+
     @Transactional
     public SignUpUserResponse signUpUser (SignUpUserRequest signUpUserRequest){
 
@@ -33,7 +35,7 @@ public class SignUpUserService {
         User user = toEntity(signUpUserRequest);
 
         user.setActive(true);
-        user.setPassword(new BCryptPasswordEncoder().encode(signUpUserRequest.getPassword()));
+        user.setPassword(passwordEncoder.encode(signUpUserRequest.getPassword()));
 
         userRepository.save(user);
 

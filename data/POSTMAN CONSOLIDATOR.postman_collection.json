@@ -130,6 +130,82 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "Edit User Profile",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"fullName\": \"Primeiro Usuário Editado\",\r\n    \"email\": \"testando001@gmail.com\",\r\n    \"phone\": \"51999999999\",\r\n    \"birthDate\": \"2004-10-20\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/user/edit-profile",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "user",
+            "edit-profile"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Change User Password",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"currentPassword\": \"testando123\",\r\n    \"newPassword\": \"atualizada\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/user/change-password",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "user",
+            "change-password"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }

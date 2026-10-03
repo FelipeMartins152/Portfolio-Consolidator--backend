@@ -15,7 +15,7 @@ public class ValidateUserEmailService {
 
     public void validateEmailUnique(String email){
 
-        if(userRepository.existsByEmailAndIsActive(email, true))
+        if(userRepository.existsByEmail(email))
             throw new ResponseStatusException(CONFLICT, "Esse email já foi cadastrado.");
 
     }
